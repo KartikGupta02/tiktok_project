@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>Create Account</h2>
+    <!-- {{if .Success}}
+        <p>User registered successfully!</p>
+        <a href="/users/login">Login Now</a>
+    {{end}} -->
+    <form action="/create_user" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" value="{{with .User}}{{.Username}}{{end}}">
+        {{with .Errors}}{{with index . "Username"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
+        <br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value="{{with .User}}{{.Email}}{{end}}">
+        {{with .Errors}}{{with index . "Email"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
+        <br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password">
+        {{with .Errors}}{{with index . "Password"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
+        <br><br>
+
+        <!-- <label for="profile_picture_url">Profile Picture URL:</label><br>
+        <input type="text" id="profile_picture_url" name="profile_picture_url" required><br><br>
+
+        <label for="bio">Bio:</label><br>
+        <textarea id="bio" name="bio" required></textarea><br><br>
+
+        <label for="followers_count">Followers Count:</label><br>
+        <input type="number" id="followers_count" name="followers_count" required><br><br>
+
+        <label for="followings_count">Followings Count:</label><br>
+        <input type="number" id="followings_count" name="followings_count" required><br><br> -->
+
+        <button type="submit">Register</button>
+        <button type="button" onclick="location.href='/users/login'">Login</button>
+    </form>
+</body>
+</html>
+ 
+ 

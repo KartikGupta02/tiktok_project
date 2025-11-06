@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>post-list</title>
+</head>
+ 
+<body>
+    {{ define "content" }}
+    <h2>All Posts</h2>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>VideoID</th>
+                <th>UserID</th>
+                <th>VideoCaption</th>
+                <th>UploadDate</th>
+                <th>Duration</th>
+                <th>VideoURL</th>
+                <th>ThumbnailURL</th>
+                <th>LikesCount</th>
+                <th>CommentsCount</th>
+                <th>ViewsCount</th>
+                <th>IsPublic</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{.VideoID}}</td>
+                <td>{{.UserID}}</td>
+                <td>{{.VideoCaption}}</td>
+                <td>{{.UploadDate}}</td>
+                <td>{{.Duration}}</td>
+                <td>{{.VideoURL}}</td>
+                <td>{{.ThumbnailURL}}</td>
+                <td>{{.LikesCount}}</td>
+                <td>{{.CommentsCount}}</td>
+                <td>{{.ViewsCount}}</td>
+                <td>{{.IsPublic}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+    {{end}}
+</body>
+ 
+</html>
+ 
