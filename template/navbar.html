@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Navbar</title>
 </head>
-<body>
-    <nav >
-        <a href="/home">Home</a> |
-        <a href="get_all_users">Users</a> |
-        <a href="/videos">Videos</a> |
-        <a href="">Contact</a>
+
+<body class="bg-gray-50 min-h-screen">
+    <nav>
+        <div class="flex justify-between items-center px-8 py-4 bg-blue-900 border-b border-gray-300 shadow">
+            <div class="space-x-2">
+                <button class="bg-white text-blue-900 hover:bg-blue-100 font-semibold px-4 py-2 rounded-xl transition"
+                    type="button" onclick="location.href='/home'">Home</button>
+                <button class="bg-white text-blue-900 hover:bg-blue-100 font-semibold px-4 py-2 rounded-xl transition"
+                    type="button" onclick="location.href='/get_all_users'">Users</button>
+                <button class="bg-white text-blue-900 hover:bg-blue-100 font-semibold px-4 py-2 rounded-xl transition"
+                    type="button" onclick="location.href='/videos'">Videos</button>
+                <button class="bg-white text-blue-900 hover:bg-blue-100 font-semibold px-4 py-2 rounded-xl transition"
+                    type="button" onclick="location.href='#'">Contact</button>
+            </div>
+            <div class="flex flex-col items-center space-x-4">
+                <span class="font-bold text-white text-lg"><i style="font-size:24px" class="fa">&#xf2c0;</i>
+                    Kartik Gupta</span>
+                <button
+                    class="bg-white text-red-600 hover:bg-red-100 font-semibold px-4 py-2 mt-2 rounded-xl transition"
+                    type="button" onclick="location.href='/users/logout'">Logout</a>
+
+            </div>
+        </div>
     </nav>
 
-    {{ block "content" . }}{{ end }}
- 
+    <main>
+        {{ block "content" . }}{{ end }}
+    </main>
 </body>
+
 </html>
- 

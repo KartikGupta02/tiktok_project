@@ -16,4 +16,6 @@ func RegisterUserRoutes() {
 	http.HandleFunc("/users/delete", middleware.AuthMiddleware(controller.DeleteUser))
 	http.HandleFunc("/users/update", middleware.AuthMiddleware(controller.UpdateUser))
 	http.HandleFunc("/users/login", controller.LoginUser)
+	http.HandleFunc("/users/logout", controller.LogoutUser)
+
 }

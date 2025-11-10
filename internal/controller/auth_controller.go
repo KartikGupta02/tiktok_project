@@ -142,6 +142,36 @@ func LoginUser(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/home", http.StatusSeeOther)
 }
 
+func LogoutUser(w http.ResponseWriter, r *http.Request) {
+	session, err := store.Get(r, "session")
+	if err != nil {
+		http.Error(w, "Session error", http.StatusInternalServerError)
+		return
+	}
+	// Invalidate cookie by setting MaxAge to -1
+	session.Options.MaxAge = -1
+	// Optional: clear other session values
+	session.Values["authenticated"] = false
+	session.Values["username"] = ""
+	session.Values["password"] = ""
+
+	if err := session.Save(r, w); err != nil {
+		http.Error(w, "Failed to end session", http.StatusInternalServerError)
+		return
+	}
+
+	// Delete JWT cookie too
+	http.SetCookie(w, &http.Cookie{
+		Name:     "user_token",
+		Value:    "",
+		Path:     "/",
+		HttpOnly: true,
+		Secure:   false,
+		MaxAge:   -1,
+	})
+	http.Redirect(w, r, "/users/login", http.StatusSeeOther)
+}
+
 func createToken(username string) (string, error) {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256,
 		jwt.MapClaims{

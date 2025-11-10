@@ -1,16 +1,17 @@
 {{ define "content" }}
-  <h1>Welcome to My Home Page</h1>
-  <p>This is the main landing page of your site.</p>
-  
+<main class="max-w-6xl mx-auto mt-13 p-8 bg-white rounded-xl shadow">
+  <h1 class="text-2xl font-semibold">Welcome to My Home Page</h1>
+  <p class="text-2xl font-semibold">This is the main landing page of your site.</p>
+
   {{ if .Authenticated }}
-    <div style="margin-top: 20px; padding: 15px; background-color: #f0f0f0; border-radius: 5px;">
-      <h2>Session Information:</h2>
-      <p><strong>Authenticated:</strong> {{ .Authenticated }}</p>
-      <p><strong>Username:</strong> {{ .Username }}</p>
-      <p><strong>Password:</strong> {{ .Password }}</p>
-    </div>
+  <div style="margin-top: 20px; padding: 15px; background-color: #f0f0f0; border-radius: 5px;">
+    <h2 class="text-xl font-semibold mb-2">Session Information:</h2>
+    <p><strong>Authenticated:</strong> {{ .Authenticated }}</p>
+    <p><strong>Username:</strong> {{ .Username }}</p>
+    <p><strong>Password:</strong> {{ .Password }}</p>
+  </div>
   {{ else }}
-    <p style="margin-top: 20px; color: red;">No active session found. Please <a href="/users/login">login</a>.</p>
+  <p style="margin-top: 20px; color: red;">No active session found. Please <a href="/users/login">login</a>.</p>
   {{ end }}
+</main>
 {{ end }}
- 

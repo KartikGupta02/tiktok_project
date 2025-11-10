@@ -1,47 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <title>User Registration</title>
 </head>
-<body>
-    <h2>Create Account</h2>
-    <!-- {{if .Success}}
+
+<body class="bg-gray-50 min-h-screen">
+    <div
+        class="flex flex-col item-center justify-center max-w-xl mx-auto mt-6 bg-white border border-gray-300 rounded-lg p-6 shadow">
+        <h2 class="text-2xl font-bold">Create Account</h2>
+        <!-- {{if .Success}}
         <p>User registered successfully!</p>
         <a href="/users/login">Login Now</a>
     {{end}} -->
-    <form action="/create_user" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" value="{{with .User}}{{.Username}}{{end}}">
-        {{with .Errors}}{{with index . "Username"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
-        <br><br>
+        <form action="/create_user" method="post">
+            <label for="username" class="block font-medium mt-4 mb-1">Username:</label>
+            <input class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter Username" type="text"
+                id="username" name="username" value="{{with .User}}{{.Username}}{{end}}">
+            {{with .Errors}}{{with index . "Username"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
+            <br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value="{{with .User}}{{.Email}}{{end}}">
-        {{with .Errors}}{{with index . "Email"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
-        <br><br>
+            <label for="email" class="block font-medium mt-4 mb-1">Email:</label>
+            <input class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter Username" type="email"
+                id="email" name="email" value="{{with .User}}{{.Email}}{{end}}">
+            {{with .Errors}}{{with index . "Email"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
+            <br>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password">
-        {{with .Errors}}{{with index . "Password"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
-        <br><br>
+            <label for="password" class="block font-medium mt-4 mb-1">Password:</label>
+            <input class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter Username" type="password"
+                id="password" name="password">
+            {{with .Errors}}{{with index . "Password"}}<div style="color:red">{{.}}</div>{{end}}{{end}}
+            <br><br>
 
-        <!-- <label for="profile_picture_url">Profile Picture URL:</label><br>
-        <input type="text" id="profile_picture_url" name="profile_picture_url" required><br><br>
+            <!-- <label for="profile_picture_url" class="block font-medium mt-4 mb-1">Profile Picture URL:</label><br>
+        <input class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter Username" type="text" id="profile_picture_url" name="profile_picture_url" required><br><br>
 
-        <label for="bio">Bio:</label><br>
-        <textarea id="bio" name="bio" required></textarea><br><br>
+        <label for="bio" class="block font-medium mt-4 mb-1">Bio:</label><br>
+        <textarea class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter Username" id="bio" name="bio" required></textarea><br><br>
 
-        <label for="followers_count">Followers Count:</label><br>
-        <input type="number" id="followers_count" name="followers_count" required><br><br>
+        <label for="followers_count" class="block font-medium mt-4 mb-1">Followers Count:</label><br>
+        <input class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter Username" type="number" id="followers_count" name="followers_count" required><br><br>
 
-        <label for="followings_count">Followings Count:</label><br>
-        <input type="number" id="followings_count" name="followings_count" required><br><br> -->
+        <label for="followings_count" class="block font-medium mt-4 mb-1">Followings Count:</label><br>
+        <input class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Enter Username" type="number" id="followings_count" name="followings_count" required><br><br> -->
 
-        <button type="submit">Register</button>
-        <button type="button" onclick="location.href='/users/login'">Login</button>
-    </form>
+            <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800" type="submit">Register</button>
+            <button class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800" type="button" onclick="location.href='/users/login'">Login</button>
+        </form>
+    </div>
 </body>
+
 </html>
- 
- 
